@@ -1,36 +1,32 @@
 // Initial array of topics
-
 var topics = ["Role Models", "Old School", "The 40-Year-Old Virgin", "Superbad", "Ted", "This Is the End", "Step Brothers",
   "Pineapple Express", "21 Jump Street", "Horrible Bosses", "Knocked Up", "Zack and Miri Make a Porno", "Archer"
 ];
-// Function for displaying topics data
+// Create a button for each of the topics 
 function renderButtons() {
 
   $("#buttons-view").empty();
 
   // Looping through the array of topics
   for (var i = 0; i < topics.length; i++) {
-
-    
     var a = $("<button class = 'button'>");
-  
     a.addClass("giphy");
-    // Adding a data-attribute
+    //date-name will be the attribute that holds our topics
     a.attr("data-name", topics[i]);
-    // Providing the initial button text
+    // Pass in the iniial text for the button
     a.text(topics[i]);
-    // Adding the button to the buttons-view div
+    // Add our button to the "button view"
     $("#buttons-view").append(a);
   }
   displayGiphy();
 }
 
 
-// Function that displays gifs for each button into the div
+// Create a "view" for each of the button states.
 function displayGiphy() {
   $("button").on("click", function () {
 
-      // Use dara-nameattribut
+      // Use data-bane attribute to pass search params
       var giphy = $(this).attr("data-name");
       if (giphy === "") {
         alert("Please Enter a Valid Search!");
@@ -51,7 +47,7 @@ function displayGiphy() {
          
           // Loop through results
           for (var i = 0; i < topicsResults.length; i++) {
-            // Make sure we are gettings data from the for loop
+            //  Check Search Results
             console.log("Search Results: " + topicsResults);
             var topicDisplay = $("<div class='card'>");
             var rating = topicsResults[i].rating;
@@ -64,7 +60,7 @@ function displayGiphy() {
             giphyImage.addClass("gif");
 
             // Try and create the "play" effect using data-attributes
-            // tge "play" state seems funky>
+            // the "play" state seems funky>when it was working..
             $(".gif").on("click", function () {
             
               var state = $(this).attr("data-state");
@@ -78,8 +74,8 @@ function displayGiphy() {
             });
             // Append text and images
             topicDisplay.append(p);
-            topicDisplay.append(giphyImage);
-            console.log(gifyImage);
+            topicDisplay.append(gif);
+            console.log(gif);
             $("#gifs-view").append(topicDisplay);
           }
         });
