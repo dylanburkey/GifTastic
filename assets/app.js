@@ -74,7 +74,7 @@ function displayGiphy() {
             });
             // Append text and images
             topicDisplay.append(p);
-            topicDisplay.append(gif);
+            topicDisplay.append(gifhyImage);
             console.log(gif);
             $("#gifs-view").append(topicDisplay);
           }
